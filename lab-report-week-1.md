@@ -11,3 +11,9 @@ Once you have installed the application, you should be able to open a window tha
 
 ### Part 2 - Remotely Connecting
 
+Then next part in starting out in this class is connecting to UCSD's servers. The way we do this is by using the terminal. First if you are using a windows computer you need to download [OpenSSH](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui).
+
+After that, you can run the command in your terminal but replace .. with the letters in your specific CSE 15L account
+```
+ssh cs15lfa22..@ieng6.ucsd.edu
+```
