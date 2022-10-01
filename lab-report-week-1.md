@@ -34,3 +34,47 @@ ieng6-203   23:25:01   1  0.08,  0.15,  0.11
 
 Sun Jan 02, 2022 11:28pm - Prepping cs15lfa22
 ```
+Now you are logged into the remote computer in the UCSD system.
+
+### Part 3 - Trying out Commands
+
+Now that you are in the remote computer you can try running some comands to test out in your terminal specfic commands that can be used are:
+
+- cd
+- ls
+- mkdir
+- cat
+- touch
+- exit
+
+an example of some commands being ran can be seen here:
+
+![Trying_Code](Trying_Code.png)
+
+### Part 4 - Moving Files between Servers
+
+Since we have been able to run some commands the next step is transferring files to and from the remote server. The most simple way to do this is by using the command scp. With these we can easily transfer files from our own computer to the remote server.
+
+For example we have a compiled java file called WhereAmI.java with the following code:
+
+```
+class WhereAmI {
+  public static void main(String[] args) {
+    System.out.println(System.getProperty("os.name"));
+    System.out.println(System.getProperty("user.name"));
+    System.out.println(System.getProperty("user.home"));
+    System.out.println(System.getProperty("user.dir"));
+  }
+}
+```
+With this make sure you are in the folder containing WhereAmI.java and run the scp command
+```
+scp WhereAmI.java cs15lfa22zz@ieng6.ucsd.edu:~/
+```
+once this is command is ran then we should have WhereAmI.java and WhereAmI.class as shown in the example below
+![scp_example](scp_example.png)
+
+### Part 5 -
+
+
+
