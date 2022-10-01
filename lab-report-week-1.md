@@ -71,10 +71,67 @@ With this make sure you are in the folder containing WhereAmI.java and run the s
 ```
 scp WhereAmI.java cs15lfa22zz@ieng6.ucsd.edu:~/
 ```
-once this is command is ran then we should have WhereAmI.java and WhereAmI.class as shown in the example below
+once this is command is ran then we should have WhereAmI.java file as shown in the example below
 ![scp_example](scp_example.png)
 
-### Part 5 -
+### Part 5 - Setting an SSH Key
 
+The next step is to optimize the time it takes for us to get between our two servers. We have had to type our password each time we enter the remote server, which is inefficient as we will most likely need to be doing this many many times over the course of CSE 15L. The way to get around this is by ssh keys. To generate an ssh key use the command
+```
+ssh-keygen
+```
+
+After this is ran the terminal should look similar to this
+```
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/joe/.ssh/id_rsa): /Users/joe/.ssh/id_rsa
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/joe/.ssh/id_rsa.
+Your public key has been saved in /Users/joe/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:jZaZH6fI8E2I1D35hnvGeBePQ4ELOf2Ge+G0XknoXp0 joe@Joes-Mac-mini.local
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|       . . + .   |
+|      . . B o .  |
+|     . . B * +.. |
+|      o S = *.B. |
+|       = = O.*.*+|
+|        + * *.BE+|
+|           +.+.o |
+|             ..  |
++----[SHA256]-----+
+```
+
+You should save the file under /Users/(name)/.ssh/id_rsa where name is the name of your computer.
+
+After this you can then run the following command on your client
+```
+$ ssh cs15lfa22zz@ieng6.ucsd.edu
+<Enter Password>
+```
+Then in the remote server run the following command
+```
+$ mkdir .ssh
+$ exit
+```
+Then back in your client run the final scp command
+```
+$ scp /Users/joe/.ssh/id_rsa.pub cs15lfa22@ieng6.ucsd.edu:~/.ssh/authorized_keys
+```
+Now you should be able to login to your ucsd account without needing your password as shown below:
+![ssh_keys](ssh_keys.png)
+
+### Part 6 - Optimizing Route Running
+
+now that you have the ability to enter the remote console without the password is easy to connect between the two. And within the terminal you are even able to run commands on your remote server from your client with commands such as
+```
+$ ssh cs15lfa22@ieng6.ucsd.edu "ls"
+```
+
+Further optimization is the key to getting faster at coding and more efficient in your workspace.
 
 
