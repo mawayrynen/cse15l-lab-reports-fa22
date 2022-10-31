@@ -24,6 +24,7 @@ Since we piped the contents of the working directory to grep through the use of 
     911report	biomed		government	plos
 
 If we wanted to get all the chapters of the 911 report except for chapter 13 since it is in 5 parts you could use the grep -v  command like this:
+
     (base) michael@Michaels-MacBook-Air 911report % ls | grep -v 13
     chapter-1.txt
     chapter-10.txt
@@ -69,7 +70,7 @@ In the 911report directory if we wanted to show all the chapters before 10 we co
     chapter-8.txt
     chapter-9.txt
 
-In the directory /government/Env_Prot_Agen then we could us the grep command to search for all the ctf and ctm files except for the one the file ctf1-6.txt:
+In the directory /government/Env_Prot_Agen then we could us the grep command to search for all the ctf and ctm files except for the one file ctf1-6.txt:
 
     (base) michael@Michaels-MacBook-Air Env_prot_agen % ls | grep -E "ct[fm][^1]"
     ctf7-10.txt
@@ -107,10 +108,13 @@ For example if we want to know the number of rr files we have in the biomed file
     9
 
 If we want to know the number of Office of the Genreal Counsel files we have in the government/Gen_Accounting_Office file we can use the grep command:
+
     (base) michael@Michaels-MacBook-Air gen_account_office % ls | grep -c og      
     57  
 
 And if we wanted to know the number files with 1471-2091 but not including the ones from March we would use the grep command:
+
     (base) michael@Michaels-MacBook-Air biomed % ls | grep -Ec "1471-2091-[^3]"
     10
+    
 This shows us an example of a use of both regular expressions and the -c command.
